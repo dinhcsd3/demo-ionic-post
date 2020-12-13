@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Demo </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Demo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card class="cardpost">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/images/avatar.jpg" />
+        </ion-avatar>
+        <div class="cardheader__top-left">
+          <span class="username">Peter Ocean</span>
+          <span class="time-and-privacy">December 14</span>
+        </div>
+      </ion-item>
+
+      <ion-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+          error amet quaerat labore recusandae enim magni veritatis rem aliquam
+          facilis quasi temporibus, fuga, reiciendis nulla tempore laudantium
+          distinctio excepturi dignissimos.Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Praesentium sequi totam earum, aut
+          facilis sint consectetur
+        </p>
+      </ion-card-content>
+
+      <div class="cardcontent__imgs">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img class="img" src="../../assets/images/natural/1.jpg" />
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="urlImg.length >= 1">
+            <ion-col *ngFor="let imgitem of urlImg" [size]="urlImg.length === 1?12:4">
+              <img class="img" [src]="imgitem.url"/>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button>
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <button ion-button>
+            <ion-icon name="return-up-forward-outline"></ion-icon>
+            <div>15 Shared</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-button color="success" (click)="handleImage(true)">Add 1 image</ion-button>
+    <ion-button color="dark" (click)="handleImage(false)">Subtract 1 image</ion-button>
+  </div>
+</ion-content>
